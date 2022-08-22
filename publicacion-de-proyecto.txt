@@ -4,3 +4,16 @@ archivos desde el servidor haciendo npm run build
 
 
 -> Hay que cambiar las direcciones de las rutas que contiene localhost ya que el servidor tiene otro nombre de ruta. Ver los archivos UI.js y bookservice.js
+
+-> en package.json agregar 
+
+postinstall: "npm run build",    
+
+para que cuando se suba el proyecto al servidor(heroku en este caso), heroku va a ejecutar 
+primero:  npm install , para instalar la carpeta node_modules que no se subio a github ni al servidor,
+luego:  npm postinstall, que contiene la instruccion "npm run build" que es la encargada de
+crear desde la carpeta ./front-end los archivos del frontend en la carpeta ./back-end/public
+
+
+
+
