@@ -1,0 +1,29 @@
+
+La instruccion "--ignore front-end" del archivo package.jason  indica que no se reinicie el servidor 
+cuando se hagan cambios en la carpeta front-end
+
+Dependecias que se deben instalar para el frontend:
+
+> npm i -D babel-loader babel-core
+
+-babel-loader se encargará de realizar el puente entre Babel y el webpack
+-babel-core es el transpilador de javaScript. 
+
+> npm install --save-dev webpack   // para instalar como dependencia de desarrollo.
+//  ó 
+> npm i webpack webpack-cli html-webpack-plugin css-loader style-loader mini-css-extract-plugin webpack-dev-server timeago.js -D 
+
+
+-webpack se encarga de convertir todos los archivos del frontend en archivos standard html css y javascript 
+y moverlos a otra carpeta.
+
+-D es para que se instalen los modulos como dependencias de desarrollo, no de produccion.
+
+npx es como npm pero permite ejecutar comandos que no estan instalados globalmente.
+
+Ejecutar 
+>npx webpack     // convierte los archivos de la carpeta front-end y los guarda en la carpeta indicada, en este caso es 'back-end/public'
+
+npm run dev         // para correr el servidor backend
+npm run server:dev      // para ejecutar webpack y correr el servidor frontend
+

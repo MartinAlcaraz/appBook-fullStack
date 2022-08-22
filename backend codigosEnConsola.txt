@@ -1,0 +1,38 @@
+1 - En la carpeta recien creada ingresar
+> npm init -y
+para crear el package.json , que es la descripcion del proyecto
+
+2- instalar:
+- express es el framework para crear un servidor
+- mongoose es un modulo npm para conectarse a mongoDB
+- morgan permite ver las peticiones http que van llegando, por consola
+- multer es un modulo que sirve para subir imagenes al servidor 
+- dotenv es un modulo que ayuda a trabajar con las variables de entorno
+- cross-env modulo que permite definir en que entorno de produccion estamos???
+- cors este modulo permite a los 2 servidores (del back y front end) enviar y recibir datos de forma sencilla
+
+> npm i express mongoose morgan multer dotenv cross-env cors
+
+3-  fs-extra este modulo de file system permite trabajar con promesas 
+npm i fs-extra
+
+4- npm i nodemon -D 
+La " -D " es para que se instale como dependecia de desarrollo.
+Este modulo cierra el servidor y lo reinicia automaticamente cada vez que hay un cambio en la 
+configuracion del servidor, en el archivo index.js
+En lugar de ejecutar 
+>node back-end/index.js , ejecutar  
+>npx nodemon back-end/index.js
+
+
+Cuando todo este listo, primero configurar en webpack.config.js 
+mode: "production"
+
+luego ejecutar :
+npm run build       // para crear los archivos comprimidos y transpilados finales que se publicaran
+
+y luego
+
+npm run dev     // para correr el servidor en el puerto 3000  para correr el servidor de la base de datos local (MONGODB_URI=mongodb://localhost/javascriptdb) que esta en el archivo .env
+
+

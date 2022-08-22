@@ -1,0 +1,30 @@
+* {
+    font-weight: 600;
+}
+h4 { 
+    font-weight: 500;
+}
+
+body {
+    background-color: blueviolet;
+    color: #333;
+}
+
+.box-image{
+    width: 100%;
+    height: 25vh;
+    border: 1px solid #ccc;
+}
+
+.imagen-cargada{
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+    height: 100%;
+    background-color: #eee;
+    display: none;
+}
+
+.imagen-cargada--visible{
+    display: block;
+}

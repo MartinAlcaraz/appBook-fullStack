@@ -1,0 +1,27 @@
+
+Modulos del arhico package.json
+-> "cross-env": "^7.0.3",  // permite definir si estamos en entorno de desarrollo ó produccion
+-> "dotenv": "^16.0.1",     // permite leer los archivos .env 
+
+ Se crea el archivo .gitignore para no subir a git la carpeta /node_modules y el archivo .env 
+que contiene la direccion de la base de datos
+
+.env es una variable de entorno
+
+En el package.json aparece:
+"scripts": {
+    "dev": "cross-env NODE_ENV=development nodemon back-end/index.js", 
+    "start": "cross-env NODE_ENV=production node back-end/index.js",
+    "build": "cross-env NODE_ENV=production webpack",
+    "server:dev": "webpack-dev-server", 
+  },
+
+"dev" es para arrancar el servidor en desarrollo
+"start" es para arrancar el servidor en produccion
+"build" es para servidor frontend de produccion
+"server:dev" es para servidor frontend de desarrollo
+
+En la consola ingresar: 
+npm run dev    // para arrancar el servidor en desarrollo, dev contiene la instruccion " nodemon back-end/index.js " que siempre se ingresa a mano
+npm run start    // para arrancar el servidor en produccion
+

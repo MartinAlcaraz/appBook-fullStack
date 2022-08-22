@@ -1,0 +1,6 @@
+
+-> En .gitignore hay que ignorar la carpeta back-end/public porque se pueden crear los 
+archivos desde el servidor haciendo npm run build
+
+
+-> Hay que cambiar las direcciones de las rutas que contiene localhost ya que el servidor tiene otro nombre de ruta. Ver los archivos UI.js y bookservice.js
