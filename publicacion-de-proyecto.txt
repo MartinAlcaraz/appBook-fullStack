@@ -9,11 +9,50 @@ archivos desde el servidor haciendo npm run build
 
 postinstall: "npm run build",    
 
-para que cuando se suba el proyecto al servidor(heroku en este caso), heroku va a ejecutar 
-primero:  npm install , para instalar la carpeta node_modules que no se subio a github ni al servidor,
-luego:  npm postinstall, que contiene la instruccion "npm run build" que es la encargada de
+porque cuando se suba el proyecto al servidor(heroku en este caso), heroku va a ejecutar 
+
+*primero:  npm install , para instalar la carpeta node_modules que no se subio a github ni al servidor,
+
+*luego:  npm postinstall, que contiene la instruccion "npm run build" que es la encargada de
 crear desde la carpeta ./front-end los archivos del frontend en la carpeta ./back-end/public
 
+*y luego: npm start , para iniciar el servidor.  Todo esto lo ejecuta heroku solo.
+
+
+-> Iniciar repositorio git
+-git init 
+-git add .
+-git commit -m "first commit"
+
+y luego subir el proyecto a heroku en la nueva apicacion creada:
+
+-heroku git:remote -a bookapp-fullstack
+-git push heroku master
+
+
+-> Ir a la pagina de mongodb atlas
+-> Crear un proyecto , con el nombre de la base de datos que se utilizara
+-> crear nombre de usuario y contraseña
+ usuario: martincho_cqc
+ contraseña: RaAkFE0Nvue7ZP9q
+ 
+ -> Ir a network access -> Add IP address -> ALLOW ACCESS FROM ANYWHERE 
+ Para permitir que cualquiera se conecte desde cualquier direccion IP 
+
+ -> Luego ir a DataBase -> connect -> Connect with your application
+ Copiar la direccion de la base de datos creada y reemplazar la palabra password por la contraseña correspondiente
+Ej:
+mongodb+srv://martincho_cqc:<password>@cluster0.4jtlmeq.mongodb.net/?retryWrites=true&w=majority
+quedaría:
+mongodb+srv://martincho_cqc:RaAkFE0Nvue7ZP9q@cluster0.4jtlmeq.mongodb.net/?retryWrites=true&w=majority
+
+-> Luego ir a heroku
+En ConfigVars en KEY poner MONGODB_URI
+En VALUE poner la direccion de la base de datos creada en mongodb atlas.
+En VALUE poner mongodb+srv://martincho_cqc:RaAkFE0Nvue7ZP9q@cluster0.4jtlmeq.mongodb.net/?retryWrites=true&w=majority
 
 
 
+
+Luego en la pagina de heroku ir a setting :
+Config Vars     , esta es la variable de entorno como el archivo .env . Hay que configurarla con la base de datos mongodb atlas.

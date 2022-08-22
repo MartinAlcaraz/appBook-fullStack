@@ -1,7 +1,8 @@
 class BookService {
 
-    constructor() {      //  = 'http://localhost:3000/api/books' si estamos en desarrollo en el localhost, si estamos en un servidor para produccion se deja asi   = '/api/books'
-        this.URI = '/api/books';
+    constructor() {      
+        this.URI = '/api/books';                //  si estamos en un servidor para produccion se deja asi   = '/api/books'
+        //this.URI = 'http://localhost:3000/api/books';     //  si estamos en desarrollo en el localhost
     }
     async getBooks() {
         const response = await fetch(this.URI);

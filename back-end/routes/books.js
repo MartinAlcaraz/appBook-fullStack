@@ -19,21 +19,29 @@ router.get('/', async (request, response) => {
     response.json(books);               // respuesta a la pagina web (le envia los libros)
 });
 
-router.post('/', async (req, res) => {      
-    const {title, author, isbn} = req.body;
-    const imagePath = '/uploads/'+ req.file.filename;
+router.post('/', async (req, res) => {
+    const { title, author, isbn } = req.body;
+    const imagePath = '/uploads/' + req.file.filename;
 
-    const newBook = new Book({title, author, isbn, imagePath});
+    const newBook = new Book({ title, author, isbn, imagePath });
     await newBook.save();
-    res.json({messege:"Book saved"});
+    res.json({ messege: "Book saved" });
 });
 
-router.delete('/:id', async(req,res)=> {
+router.delete('/:id', async (req, res) => {
     // console.log(req.params.id);
     const book = await Book.findByIdAndDelete(req.params.id); // busca y borra el libro con el id indicado, no es necesario guardar el libro en un variable
-    // console.log(book);
-    unlink(path.resolve('./back-end/public'+book.imagePath));  // este metodo borra el archivo pasado como parametro
-    res.json({messege:"Book deleted"});
+    //console.log("Book", book);
+    try {
+        unlink(path.resolve('./back-end/public' + book.imagePath));  // este metodo borra el archivo pasado como parametro
+    }
+    catch {
+        (error) => {
+            console.log("No se puedo borrar la imagen");
+            console.log(error);
+        }
+    }
+    res.json({ messege: "Book deleted" });
 });
 
 module.exports = router;

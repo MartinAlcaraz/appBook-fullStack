@@ -14,8 +14,8 @@ if (process.env.NODE_ENV == 'development'){
 const app = express(); // para iniciar el servidor
 require('./database.js');
 
-// settings
-app.set('port', 3000);// || process.env.PORT);  // utiliza el puerto del archivo .env ó el 3000
+// settings                                 // en el servidor heroku seria la variable de configuracion  ó variable de ambiente
+app.set('port', process.env.PORT || 3000);    // utiliza el puerto del archivo .env ó el 3000  
 
 // middlewares //
 app.use(morgan('dev')); // registra las solicitudes http (hechas al servidor)
