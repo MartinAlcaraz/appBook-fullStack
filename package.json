@@ -7,7 +7,7 @@
     "build": "cross-env NODE_ENV=production webpack",
     "server:dev":"webpack-dev-server",                
 
-    "postinstall": "npm run bulid",
+    "postinstall": "npm run build",
 
     "dev": "cross-env NODE_ENV=development nodemon back-end/index.js --ignore front-end",
     "start": "cross-env NODE_ENV=production node back-end/index.js"
